@@ -1,0 +1,29 @@
+!!! 5
+%html{ :lang => "en"}
+  %head
+    %meta{ :charset => "utf-8" }
+
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+    %title= content_for?(:title) ? yield(:title) : "Locucast"
+
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "application"
+    = csrf_meta_tag
+
+  %body
+    .contain-to-grid
+      %nav.top-bar{"data-topbar" => "", :role => "navigation"}
+        %ul.title-area
+          %li.name
+            %h1
+              = link_to "Locucast", root_path
+        %section.top-bar-section
+          %ul.right
+            - if user_signed_in?
+              %li= link_to "Sign out", destroy_user_session_path, method: :delete
+            - else
+              %li= link_to "Sign in", new_user_session_path
+              %li= link_to "Sign up", new_user_registration_path
+    = yield
