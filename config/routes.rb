@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resources :uploads, only: [:new, :create, :show]
+  resources :uploads, only: [:new, :create, :show, :update]
   resources :uploaded_files, only: [:create]
   resources :feeds, only: :show, :defaults => { :format => :xml }
 

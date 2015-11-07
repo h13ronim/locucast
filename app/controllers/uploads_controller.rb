@@ -1,4 +1,5 @@
 class UploadsController < ApplicationController
+  before_filter :set_upload, only: [:show, :update]
   before_filter :set_success_upload_flash, only: [:show]
 
   def new
@@ -10,8 +11,14 @@ class UploadsController < ApplicationController
     save_upload or render :new
   end
 
-  def show
-    @upload = current_user.uploads.find(params[:id])
+  def show ; end
+
+  def update
+    if update_upload
+      redirect_to @upload
+    else
+      render :show
+    end
   end
 
   private
@@ -29,10 +36,18 @@ class UploadsController < ApplicationController
   end
 
   def upload_params
-    params[:upload].andand.permit(:name, :description)
+    params[:upload].andand.permit(:name, :description, uploaded_files_order: [])
   end
 
   def upload_scope
     current_user.uploads
+  end
+
+  def set_upload
+    @upload = current_user.uploads.find(params[:id])
+  end
+
+  def update_upload
+    @upload.update(upload_params)
   end
 end
