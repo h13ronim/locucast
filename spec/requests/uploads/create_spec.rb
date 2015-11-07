@@ -9,7 +9,6 @@ describe '/uploads/create', :type => :request do
       "upload"=>{
         "name"=>"xx",
         "description"=>"xx",
-        # TODO: add multiple files
       },
       "commit"=>"Create Upload"
     }

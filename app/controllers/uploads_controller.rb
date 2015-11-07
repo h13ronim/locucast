@@ -19,10 +19,7 @@ class UploadsController < ApplicationController
   end
 
   def upload_params
-    params[:upload].andand.permit(
-      :name, :description,
-      # TODO: multiple file attachments
-    )
+    params[:upload].andand.permit(:name, :description)
   end
 
   def upload_scope
