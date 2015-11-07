@@ -21,14 +21,15 @@ describe '/uploaded_files', :type => :request do
 
     let(:query) do
       {
-        "url"=>"https://locucast.s3.amazonaws.com/uploads%2F1446896910415-8mcz3zgh72ai3sor-fc3f6b9942b170e9fec3f28906543ef6%2F#{upload.id}-image.png",
-        "filepath"=>"/uploads%2F1446896910415-8mcz3zgh72ai3sor-fc3f6b9942b170e9fec3f28906543ef6%2F#{upload.id}-image.png",
+        "url"=>"https://locucast.s3.amazonaws.com/uploads%2F1446896910415-8mcz3zgh72ai3sor-fc3f6b9942b170e9fec3f28906543ef6%2Fimage.png",
+        "filepath"=>"/uploads%2F1446896910415-8mcz3zgh72ai3sor-fc3f6b9942b170e9fec3f28906543ef6%2Fimage.png",
         "filename"=>"image.png",
         "filesize"=>"2716",
         "lastModifiedDate"=>"Sat Nov 07 2015 11:35:51 GMT+0100 (CET)",
         "filetype"=>"image/png",
         "unique_id"=>"8mcz3zgh72ai3sor",
-        "file"=>"https://locucast.s3.amazonaws.com/uploads%2F1446896910415-8mcz3zgh72ai3sor-fc3f6b9942b170e9fec3f28906543ef6%2F#{upload.id}-image.png"
+        "file"=>"https://locucast.s3.amazonaws.com/uploads%2F1446896910415-8mcz3zgh72ai3sor-fc3f6b9942b170e9fec3f28906543ef6%2Fimage.png",
+        "upload_id"=>upload.id
       }
     end
     let(:user) { create(:user) }
@@ -45,7 +46,7 @@ describe '/uploaded_files', :type => :request do
 
       uploaded_file = UploadedFile.last
       expect(uploaded_file.url).to eq(
-        "https://locucast.s3.amazonaws.com/uploads/1446896910415-8mcz3zgh72ai3sor-fc3f6b9942b170e9fec3f28906543ef6/#{upload.id}-image.png"
+        "https://locucast.s3.amazonaws.com/uploads/1446896910415-8mcz3zgh72ai3sor-fc3f6b9942b170e9fec3f28906543ef6/image.png"
       )
     end
   end

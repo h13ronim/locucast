@@ -9,7 +9,7 @@ class UploadedFilesController < ApplicationController
   private
 
   def set_upload
-    @upload = uploads_scope.find(upload_id)
+    @upload = uploads_scope.find(params[:upload_id])
   end
 
   def uploads_scope
@@ -26,10 +26,6 @@ class UploadedFilesController < ApplicationController
 
   def uploaded_file_params
     { url: decoded_url_param }
-  end
-
-  def upload_id
-    decoded_url_param.scan(/(?<=\/)\d+/).last
   end
 
   def decoded_url_param
