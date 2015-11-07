@@ -1,6 +1,8 @@
 class Feed < ActiveType::Object
   attr_reader :upload
 
+  delegate :description, :author, to: :upload
+
   def initialize(upload)
     @upload = upload
   end
@@ -10,13 +12,10 @@ class Feed < ActiveType::Object
   end
 
   def link
-    'http://test.host/feeds/my_audiobook_name' # TODO
-  end
-
-  delegate :description, to: :upload
-
-  def author
-    'My Audiobook Author' # TODO
+    Rails.application.routes.url_helpers.feed_url(
+      upload,
+      host: Rails.configuration.action_controller.default_url_options[:host]
+    )
   end
 
   def items

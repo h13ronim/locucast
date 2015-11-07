@@ -5,9 +5,9 @@ describe 'upload', :type => :feature do
     login_as(create(:user), :scope => :user)
     visit '/uploads/new'
     expect(page).to have_content('Upload your files')
-    # TODO: WIP in other pair
-    # fill_in('Name', with: 'my audiobook')
-    # fill_in('Description', with: 'my new audiobook')
+    fill_in('Name', with: 'my audiobook')
+    fill_in('Description', with: 'my new audiobook')
+    fill_in('Author', with: 'my new audiobook author')
     # TODO: add multiple files
     #expect {
       #expect {
