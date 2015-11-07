@@ -38,6 +38,7 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'omniauth-github'
 gem 'simple_form'
+gem 'andand'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,6 +48,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-bundler'
   gem 'guard-migrate'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -59,6 +61,8 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'poltergeist'
+  gem 'shoulda-matchers'
 end
 
 group :production do

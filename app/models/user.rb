@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+  has_many :uploads
 end

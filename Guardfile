@@ -91,4 +91,8 @@ guard :rspec, rspec_options do
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$}) do |m|
     Dir[File.join("**/#{m[1]}.feature")][0] || "spec/acceptance"
   end
+
+  watch(%r{^app/(.+)upload}) do |m|
+    'spec/features/upload_spec.rb'
+  end
 end
