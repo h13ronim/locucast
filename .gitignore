@@ -13,3 +13,4 @@
 /tmp
 
 .env
+spec/fixtures/1984-01_64kb.mp3

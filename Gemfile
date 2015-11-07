@@ -40,6 +40,7 @@ gem 'omniauth-github'
 gem 'simple_form'
 gem 'andand'
 gem 'active_type'
+gem 'mp3info'
 
 gem 's3_direct_upload', github: 'RobotsAndPencils/s3_direct_upload'
 
