@@ -25,9 +25,7 @@ class UploadedFilesController < ApplicationController
   end
 
   def uploaded_file_params
-    _params = {
-      url: decoded_url_param,
-    }
+    { url: decoded_url_param }
   end
 
   def upload_id
