@@ -18,7 +18,6 @@ class UploadedFilesController < ApplicationController
 
   def save_uploaded_file
     redirect_to @upload if @uploaded_file.save
-    puts @uploaded_file.errors.inspect
   end
 
   def build_uploaded_file
