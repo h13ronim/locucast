@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20151107181121) do
     t.string   "url",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "hash_id"
     t.string   "title"
     t.string   "author"
     t.string   "guid"
@@ -35,8 +34,8 @@ ActiveRecord::Schema.define(version: 20151107181121) do
     t.integer  "user_id",                           null: false
     t.string   "name",                              null: false
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "author"
     t.integer  "uploaded_files_order", default: [],              array: true
   end
