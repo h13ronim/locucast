@@ -12,6 +12,11 @@ class UploadedFile < ActiveRecord::Base
     url.split("/").last
   end
 
+  # TODO: this is stub until better approach to sorting arrives
+  def position
+    1
+  end
+
   private
 
   def run_postprocess

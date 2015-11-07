@@ -13,9 +13,9 @@ class Feed < ActiveType::Object
 
   def link
     Rails.application.routes.url_helpers.feed_url(
-      upload,
-      host: Rails.configuration.action_controller.default_url_options[:host]
-    )
+      upload.id,
+      host: Rails.configuration.action_controller.default_url_options[:host],
+    ) + '.xml'
   end
 
   def items

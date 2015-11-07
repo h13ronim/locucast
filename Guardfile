@@ -92,6 +92,16 @@ guard :rspec, rspec_options do
     Dir[File.join("**/#{m[1]}.feature")][0] || "spec/acceptance"
   end
 
+  watch(%r{app/controllers/(.+)_controller\.rb}) do |m|
+    "spec/requests/#{m[1]}"
+  end
+  watch(%r{app/views/(.+)/(.+)\.rb}) do |m|
+    "spec/requests/#{m[1]}"
+  end
+  watch(%r{app/presenter/(.+)/(.+)\.rb}) do |m|
+    "spec/requests/#{m[1]}s"
+  end
+
   watch(%r{^app/(.+)upload}) do |m|
     'spec/features/upload_spec.rb'
   end

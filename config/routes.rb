@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :uploads, only: [:new, :create, :show]
   resources :uploaded_files, only: [:create]
-  resources :feeds, only: :show
+  resources :feeds, only: :show, :defaults => { :format => :xml }
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'

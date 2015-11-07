@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Feed do
   let(:author) { 'My Audiobook Author' }
-  let(:link) { "http://www.example.com/feeds/#{upload.id}" }
+  let(:link) { "http://www.example.com/feeds/#{upload.id}.xml" }
   let(:name) { 'My Audiobook Name' }
   let(:description) { 'My Audiobook Description' }
   let(:upload) do

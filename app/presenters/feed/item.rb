@@ -6,11 +6,15 @@ class Feed::Item < ActiveType::Object
     @upload = upload
   end
 
-  delegate :title, :author, :guid, :position, :duration, to: :uploaded_file
+  delegate :title, :author, :guid, :position, to: :uploaded_file
   delegate :url, :length, to: :uploaded_file, prefix: :enclosure
 
   def image
     '' # TODO
+  end
+
+  def duration
+    uploaded_file.duration.to_i
   end
 
   def pub_date
