@@ -3,15 +3,4 @@
     %h1
       Upload your files
 
-
-    = s3_uploader_form id: "s3-uploader", callback_url: uploads_url do
-      = file_field_tag :file, multiple: true
-
-    .upload.js-progress-bars
-      .progress
-        .bars
-
-    :coffeescript
-      jQuery ->
-        $("#s3-uploader").S3Uploader
-          progress_bar_target: $('.js-progress-bars')
+      = render "form"
