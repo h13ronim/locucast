@@ -1,1 +1,8 @@
 %h1 Hello, Locutus :)
+
+- if user_signed_in?
+  %p :)
+- else
+  %p :(
+
+= link_to "Login", new_user_session_path
