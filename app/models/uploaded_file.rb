@@ -1,6 +1,8 @@
 require 'open-uri'
 
 class UploadedFile < ActiveRecord::Base
+  extend OrderAsSpecified
+
   belongs_to :upload
 
   validates :upload, presence: true
