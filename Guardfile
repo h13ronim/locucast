@@ -10,6 +10,10 @@ guard :bundler do
   files.each { |file| watch(helper.real_path(file)) }
 end
 
+guard 'migrate' do
+  watch(%r{^db/migrate/(\d+).+\.rb})
+  watch('db/seeds.rb')
+end
 
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
@@ -81,4 +85,3 @@ guard :rspec, cmd: "bundle exec rspec" do
     Dir[File.join("**/#{m[1]}.feature")][0] || "spec/acceptance"
   end
 end
-
