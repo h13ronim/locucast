@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/RobotsAndPencils/s3_direct_upload.git
+  revision: 7ba5214dc0c0b2ce4bf2e2edbd82b14fe1e0a0e0
+  specs:
+    s3_direct_upload (0.1.7)
+      coffee-rails (>= 3.1)
+      jquery-fileupload-rails (~> 0.4.1)
+      rails (>= 3.1)
+      sass-rails (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -116,6 +126,10 @@ GEM
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jquery-fileupload-rails (0.4.6)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      sass (>= 3.2)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -300,6 +314,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails_12factor
   rspec-rails
+  s3_direct_upload!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   shoulda-matchers

@@ -26,4 +26,7 @@
             - else
               %li= link_to "Sign in", new_user_session_path
               %li= link_to "Sign up", new_user_registration_path
+          - if user_signed_in?
+            %ul.left
+              %li= link_to "Uploads", new_upload_path
     = yield
