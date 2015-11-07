@@ -38,7 +38,6 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'omniauth-github'
 gem 'simple_form'
-gem 'rails_12factor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -64,4 +63,5 @@ end
 
 group :production do
   gem 'puma'
+  gem 'rails_12factor'
 end
