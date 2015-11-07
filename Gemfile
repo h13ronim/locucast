@@ -41,6 +41,7 @@ gem 'simple_form'
 gem 'andand'
 gem 'active_type'
 gem 'mp3info'
+gem 'order_as_specified'
 
 gem 's3_direct_upload', github: 'RobotsAndPencils/s3_direct_upload'
 
