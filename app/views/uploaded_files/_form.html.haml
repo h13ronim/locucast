@@ -1,0 +1,14 @@
+= s3_uploader_form id: "s3-uploader",
+  callback_url: uploaded_files_url,
+  key: "uploads/{timestamp}-{unique_id}-#{SecureRandom.hex}/#{@upload.id}-${filename}" do
+
+  = file_field_tag :file, multiple: true
+
+.upload.js-progress-bars
+  .progress
+    .bars
+
+:coffeescript
+  jQuery ->
+    $("#s3-uploader").S3Uploader
+      progress_bar_target: $('.js-progress-bars')

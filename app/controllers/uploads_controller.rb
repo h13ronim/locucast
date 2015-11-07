@@ -8,6 +8,10 @@ class UploadsController < ApplicationController
     save_upload or render :new
   end
 
+  def show
+    @upload = current_user.uploads.find(params[:id])
+  end
+
   private
 
   def save_upload

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :uploads, only: [:new, :create, :show]
+  resources :uploaded_files, only: [:create]
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
