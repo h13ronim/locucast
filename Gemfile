@@ -36,11 +36,13 @@ gem 'haml'
 gem 'foundation-rails'
 
 gem 'devise'
+gem 'omniauth-github'
 gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'guard-bundler'

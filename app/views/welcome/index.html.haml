@@ -1,3 +1,6 @@
 .row
   .small-12.columns
     %h1 Hello, Locutus :)
+
+    - unless user_signed_in?
+      = link_to "Sign in with Github", user_omniauth_authorize_path(:github)
