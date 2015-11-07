@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
+    <title>My Audiobook Name</title>
+    <link>http://test.host/feeds/my_audiobook_name</link>
+    <description>My Audiobook Description</description>
+    <itunes:summary>My Audiobook Description</itunes:summary>
+    <itunes:author>My Audiobook Author</itunes:author>
+	  <generator>Locucast</generator>
+    <item>
+      <title>0001</title>
+      <itunes:author>My Audiobook Author</itunes:author>
+      <itunes:image href=""/>
+      <enclosure url="http://test.host/feeds/my_audiobook_name/0001.mp3" length="22626414" type="audio/mp3"/>
+      <guid isPermaLink="false">fd2c918ffaa63c3acb240f8167fda0681b942d8d</guid>
+      <pubDate>Sun, 20 Sep 2015 20:34:29 +0200</pubDate>
+      <itunes:duration>1411</itunes:duration>
+    </item>
+    <item>
+      <title>0002</title>
+      <itunes:author>My Audiobook Author</itunes:author>
+      <itunes:image href=""/>
+      <enclosure url="http://test.host/feeds/my_audiobook_name/0002.mp3" length="43258551" type="audio/mp3"/>
+      <guid isPermaLink="false">f457f5bb9638e8c6406c8465adade6f27a79a91c</guid>
+      <pubDate>Sun, 20 Sep 2015 20:35:29 +0200</pubDate>
+      <itunes:duration>2701</itunes:duration>
+    </item>
+  </channel>
+</rss>

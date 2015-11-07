@@ -1,0 +1,25 @@
+class Feed::Item < ActiveType::Object
+  attr_reader :uploaded_file, :upload
+
+  def initialize(uploaded_file, upload)
+    @uploaded_file = uploaded_file
+    @upload = upload
+  end
+
+  delegate :title, :author, :guid, :position, :duration, to: :uploaded_file
+  delegate :url, :length, :file_type, to: :uploaded_file, prefix: :enclosure
+
+  def image
+    '' # TODO
+  end
+
+  def pub_date
+    upload.created_at.at_beginning_of_day.advance(minutes: position)
+  end
+
+  def items
+    uploaded_file.uploaded_fileed_files.map do |uploaded_fileed_file|
+      Feed::Item.new(uploaded_fileed_file)
+    end
+  end
+end

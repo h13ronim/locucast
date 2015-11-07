@@ -30,6 +30,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_type (0.4.0)
+      activerecord (>= 3.2)
     activejob (4.2.4)
       activesupport (= 4.2.4)
       globalid (>= 0.3.0)
@@ -293,6 +295,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_type
   andand
   byebug
   capybara
@@ -322,3 +325,6 @@ DEPENDENCIES
   spring
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6
