@@ -1,6 +1,11 @@
 .row
   .small-12.columns
     %h1
-      Upload your files
+      Uploaded files
+    %ol
+      - @upload.uploaded_files.each_with_index do |file, i|
+        %li=file.url
+    %h1
+      Add new files
 
     = render "uploaded_files/form"
