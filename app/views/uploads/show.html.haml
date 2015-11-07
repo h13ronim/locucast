@@ -11,6 +11,8 @@
         = simple_form_for @upload do |f|
           = f.button :submit, "Update order"
 
+      = link_to('Subscribe', feed_path(@upload, format: :xml, target: '_blank')
+
     %h1
       Add new files
 
