@@ -5,6 +5,6 @@ class UploadedFile < ActiveRecord::Base
   validates :url, presence: true
 
   def name
-    url.split("/").last.gsub(/\d+-/, '')
+    url.split("/").last
   end
 end

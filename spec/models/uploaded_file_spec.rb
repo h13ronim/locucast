@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UploadedFile, type: :model do
-  let(:url) { "https://locucast.s3.amazonaws.com/uploads/1446903042750-3rgk73jgxiyynwmi-0e9f013acee10d99d97dcd3d3bf8bed9/6-10x10.png" }
+  let(:url) { "https://locucast.s3.amazonaws.com/uploads/1446903042750-3rgk73jgxiyynwmi-0e9f013acee10d99d97dcd3d3bf8bed9/10x10.png" }
   subject { create(:uploaded_file, url: url) }
 
   it { is_expected.to belong_to(:upload) }
