@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe '/uploads/create', :type => :request do
+describe '/uploads/create', type: :request do
   let(:request_url) { '/uploads' }
   let(:query) do
     {
@@ -24,7 +24,7 @@ describe '/uploads/create', :type => :request do
 
   context 'when authenticated' do
     before do
-      login_as(create(:user), :scope => :user)
+      login_as(create(:user), scope: :user)
       post request_url, query
     end
 

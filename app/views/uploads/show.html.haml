@@ -1,10 +1,11 @@
 .row
   .small-12.columns
-    %h1
-      Uploaded files
-    %ol
-      - @upload.uploaded_files.each_with_index do |file, i|
-        %li= file.name
+    - if @upload.uploaded_files.any?
+      %h1
+        Uploaded files
+      %ol
+        - @upload.uploaded_files.each_with_index do |file, i|
+          %li= file.name
     %h1
       Add new files
 

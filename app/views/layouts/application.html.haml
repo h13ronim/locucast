@@ -29,4 +29,10 @@
           - if user_signed_in?
             %ul.left
               %li= link_to "Uploads", new_upload_path
+    - if flash[:notice]
+      .row
+        .small-12.columns
+          .alert-box.success.radius{"data-alert" => ""}
+            =flash[:notice]
+            %a.close{:href => "#"} ×
     = yield

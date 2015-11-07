@@ -30,6 +30,17 @@ describe '/uploads/show', :type => :request do
 
         expect(response.code.to_i).to eq(200)
       end
+
+      context "and successfully upload files" do
+        let(:uploaded_file) { create(:uploaded_file, user: user) }
+        let(:request_url) { "/uploads/#{upload_id}?show_success_upload_flash=true" }
+
+        it "returns flash message" do
+          subject
+
+          expect(flash[:notice]).to eq "All files uploaded."
+        end
+      end
     end
   end
 end

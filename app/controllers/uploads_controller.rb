@@ -1,4 +1,6 @@
 class UploadsController < ApplicationController
+  before_filter :set_success_upload_flash, only: [:show]
+
   def new
     build_upload
   end
@@ -13,6 +15,10 @@ class UploadsController < ApplicationController
   end
 
   private
+
+  def set_success_upload_flash
+    flash[:notice] = "All files uploaded." if params[:show_success_upload_flash].present?
+  end
 
   def save_upload
     redirect_to @upload if @upload.save
