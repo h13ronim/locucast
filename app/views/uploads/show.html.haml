@@ -3,10 +3,34 @@
     - if @upload.uploaded_files.any?
       %h1
         Uploaded files
-      %ol
-        - @upload.uploaded_files.each_with_index do |file, i|
-          %li= file.name
+      %ol#uploaded_files
+        - @upload.uploaded_files.each do |file|
+          %li{ id: "uploaded_file_#{file.id}" }= file.name
+
+      = form_for @upload do |f|
+        = simple_form_for @upload do |f|
+          = f.button :submit, "Update order"
+
     %h1
       Add new files
 
     = render "uploaded_files/form"
+
+:coffeescript
+  window.prepareUploadedFilesOrderHiddenInputs = () ->
+    $.each(getOrderUploadedFilesIds(), (i, val) ->
+      $('.edit_upload').prepend(
+        "<input multiple='multiple' value='\#{val}' type='hidden' name='upload[uploaded_files_order][]' id='upload_uploaded_files_order'>"
+      )
+    )
+
+  window.getOrderUploadedFilesIds = () ->
+    $('#uploaded_files').sortable('toArray').map (i) -> i.replace('uploaded_file_', '')
+
+  $('#uploaded_files').sortable
+    appendTo: document.body
+
+  $(".edit_upload").submit ->
+    prepareUploadedFilesOrderHiddenInputs()
+    # need to return true to proceed with form submit
+    true
