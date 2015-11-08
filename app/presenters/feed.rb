@@ -12,7 +12,7 @@ class Feed < ActiveType::Object
   end
 
   def items
-    upload.uploaded_files.map do |uploaded_file|
+    upload.uploaded_files_ordered.map do |uploaded_file|
       Feed::Item.new(uploaded_file, upload)
     end
   end
