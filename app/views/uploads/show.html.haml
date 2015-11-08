@@ -27,7 +27,7 @@
               %td= link_to "Delete", chapter_path(file), method: "delete", class: "button alert tiny delete-uploaded-file-button"
     .row
       .large-3.small-6.columns.show-for-medium-up
-        = simple_form_for audiobook_path(@upload) do |f|
+        = simple_form_for @upload, url: audiobook_path(@upload), method: :put do |f|
           = f.button :submit, "Update order"
       .large-4.small-12.columns.end
         = render "uploaded_files/form"
