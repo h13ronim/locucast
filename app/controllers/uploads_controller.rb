@@ -16,7 +16,7 @@ class UploadsController < ApplicationController
   end
 
   def show
-    @uploaded_files = @upload.uploaded_files
+    @uploaded_files = @upload.uploaded_files_ordered
   end
 
   def update
