@@ -1,6 +1,7 @@
 .large-3.small-12.columns.end
   .card
     .image{ style: 'min-height: 381px' }
-      = image_tag "new_audiobook_cart.png"
+      = link_to new_audiobook_path do
+        = image_tag "new_audiobook_cart.png"
     .action
       = link_to "Add audiobook", new_audiobook_path
