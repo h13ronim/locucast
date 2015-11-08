@@ -52,6 +52,23 @@ class ApplicationController < ActionController::Base
     u = User.create(email: "guest_#{Time.now.to_i}#{rand(100)}@example.com")
     u.save!(validate: false)
     session[:guest_user_id] = u.id
+    guest_user_template.uploads.each do |upload_template|
+      upload = u.uploads.new(
+        upload_template.attributes.reject {|k,v| [:id].include?(k.to_sym) }
+      )
+      raise upload.inspect unless upload.save(validate: false)
+      UploadedFile.skip_callback(:commit, :after, :run_postprocess)
+      upload_template.uploaded_files.each do |uploaded_file_template|
+        uploaded_file = upload.uploaded_files.new(
+          uploaded_file_template.attributes.reject {|k,v| [:id].include?(k.to_sym) }
+        )
+        raise uploaded_file.inspect unless uploaded_file.save(validate: false)
+      end
+    end
     u
+  end
+
+  def guest_user_template
+    User.where(email: ENV['GUEST_USER_TEMPLATE']).first
   end
 end
