@@ -25,8 +25,16 @@ describe '/uploads/update', type: :request do
     end
 
     context 'when update succeeds' do
-      let(:query) { { "upload" => { "uploaded_files_order" => uploaded_files_order } } }
+      let(:query) do
+        {
+          "upload" => {
+            "uploaded_files_order" => uploaded_files_order,
+            "picture_url" => picture_url
+          }
+        }
+      end
       let(:uploaded_files_order) { [5, 6, 7, 8] }
+      let(:picture_url) { "http://test.com/picture/1" }
 
       it 'redirects to show action' do
         subject
@@ -36,6 +44,10 @@ describe '/uploads/update', type: :request do
 
       it "updates Upload#uploaded_files_order" do
         expect { subject }.to change { upload.reload.uploaded_files_order }.to(uploaded_files_order)
+      end
+
+      it "updates Upload#picture_url" do
+        expect { subject }.to change { upload.reload.picture_url }.to(picture_url)
       end
     end
 
