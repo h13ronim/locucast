@@ -2,9 +2,9 @@
 
   = file_field_tag :file, multiple: true
 
-.upload.js-progress-bars
-  .progress
-    .bars
+.js-progress-bars
+
+= render "uploaded_files/progress_bar_template"
 
 :coffeescript
   jQuery ->
