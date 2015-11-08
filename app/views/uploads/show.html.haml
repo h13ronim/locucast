@@ -30,9 +30,12 @@
     = render "uploaded_files/form"
 
     %h3
-      Add picture
-
+      Update picture
+    = image_tag @upload.picture_url
     = render "picture_form"
+
+= render "shared/progress_bar_template"
+
 :coffeescript
   window.prepareUploadedFilesOrderHiddenInputs = () ->
     $.each(getOrderUploadedFilesIds(), (i, val) ->

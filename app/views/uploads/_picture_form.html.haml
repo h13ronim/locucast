@@ -6,14 +6,12 @@
 
   = file_field_tag :file, multiple: true, accept: "image/*"
 
-#picture-uploader-progress-bar
-
-= render "uploaded_files/progress_bar_template"
+#picture-upload-progress-bar
 
 :coffeescript
   jQuery ->
     $("#picture-uploader").S3Uploader
-      progress_bar_target: $('.picture-uploader-progress-bar')
+      progress_bar_target: $('#picture-upload-progress-bar')
       additional_data: { id: "#{@upload.id}" }
     $(document).bind 's3_uploads_complete', ->
       location.href = location.href + "?show_success_picture_upload_flash=true"
