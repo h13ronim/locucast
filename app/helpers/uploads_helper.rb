@@ -27,7 +27,7 @@ module UploadsHelper
     if upload.picture_url
       image_tag(upload.picture_url, options)
     else
-      with_link ? link_to(add_cover_url_image, upload, options) : add_cover_url_image(options)
+      with_link ? link_to(add_cover_url_image, audiobook_path(upload), options) : add_cover_url_image(options)
     end
   end
 end
