@@ -59,7 +59,7 @@ describe '/feeds/show', :type => :request do
       <itunes:image href=\"\"/>
       <enclosure url=\"#{uploaded_file.url}\" length=\"373155\" type=\"audio/mpeg\"/>
       <guid isPermaLink=\"false\">#{guid}</guid>
-      <pubDate>#{Date.today.beginning_of_day.rfc2822}</pubDate>
+      <pubDate>#{Date.new(2015, 11, 8).beginning_of_day.rfc2822}</pubDate>
       <itunes:duration>46</itunes:duration>
     </item>
   </channel>
