@@ -27,7 +27,6 @@ describe Feed::Item do
   it { expect(feed_item.title).to eq(title) }
   it { expect(feed_item.author).to eq(author) }
   it { expect(feed_item.guid).to eq(guid) }
-  xit { expect(feed_item.position).to eq(position) }
   it { expect(feed_item.duration).to eq(duration) }
   it { expect(feed_item.enclosure_url).to eq(url) }
   it { expect(feed_item.enclosure_length).to eq(length) }
