@@ -5,12 +5,19 @@
 
     = render "form"
 
+  .small-12.columns
     - if @uploaded_files.any?
       %h2
         Uploaded files
-      %ol#uploaded_files
-        - @uploaded_files.each do |file|
-          %li{ id: "uploaded_file_#{file.id}" }= file.name
+      %table{ style: 'width: 100%' }
+        %tbody#uploaded_files
+          %tr
+            %th{ style: "width: 5%" }
+            %th{ style: "width: 95%"} Name
+          - @uploaded_files.each_with_index do |file, i|
+            %tr{ id: "uploaded_file_#{file.id}" }
+              %td= i + 1
+              %td= file.name
 
       = form_for @upload do |f|
         = simple_form_for @upload do |f|
