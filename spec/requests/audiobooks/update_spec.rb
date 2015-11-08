@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe '/uploads/update', type: :request do
+describe '/audiobooks/update', type: :request do
   subject { put request_url, query }
 
   let(:request_url) { "/audiobooks/#{upload_id}" }
