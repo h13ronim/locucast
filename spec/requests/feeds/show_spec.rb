@@ -48,6 +48,7 @@ describe '/feeds/show', :type => :request do
     <description>#{upload.description}</description>
     <itunes:summary>#{upload.description}</itunes:summary>
     <itunes:author></itunes:author>
+    <itunes:image href=\"\" />
     <generator>Locucast</generator>
     <item>
       <title>The Fox and The Grapes</title>
