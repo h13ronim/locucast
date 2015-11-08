@@ -51,3 +51,11 @@
     prepareUploadedFilesOrderHiddenInputs()
     # need to return true to proceed with form submit
     true
+
+  $(".file-input").click (e) ->
+    e.stopPropagation()
+
+  $(".file-upload").click (e) ->
+    e.stopPropagation()
+    $(e.currentTarget).children().trigger("click")
+    false
