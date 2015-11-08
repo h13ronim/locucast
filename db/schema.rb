@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108110139) do
+ActiveRecord::Schema.define(version: 20151108121559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +40,9 @@ ActiveRecord::Schema.define(version: 20151108110139) do
     t.datetime "updated_at",                                   null: false
     t.integer  "uploaded_files_order",            default: [],              array: true
     t.string   "author"
-    t.string   "token",                limit: 64
     t.datetime "deleted_at"
+    t.string   "token",                limit: 64
+    t.string   "picture_url"
   end
 
   add_index "uploads", ["deleted_at"], name: "index_uploads_on_deleted_at", using: :btree
