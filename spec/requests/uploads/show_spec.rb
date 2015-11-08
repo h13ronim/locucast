@@ -62,8 +62,8 @@ describe '/uploads/show', :type => :request do
       it 'has tokenized subscribe button' do
         subject
         expect(response.body).to include(
-          "<a class=\"button\" " +
-          "href=\"/feeds/#{upload.id}?target=_blank&token=#{upload.token}\">" +
+          "<a class=\"button\" target=\"_blank\" "+
+          "href=\"/feeds/#{upload.id}?token=#{upload.token}\">" +
           "Subscribe" +
           "</a>"
         )

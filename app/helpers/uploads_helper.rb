@@ -4,7 +4,6 @@ module UploadsHelper
       feed_path(
         upload,
         format: :xml,
-        target: '_blank',
         token: upload.token
       )
     )
