@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :uploads
-  resources :uploaded_files, only: [:create]
+  resources :uploaded_files, only: [:create, :destroy]
   resources :feeds, only: :show, :defaults => { :format => :xml }
 
   # You can have the root of your site routed with "root"

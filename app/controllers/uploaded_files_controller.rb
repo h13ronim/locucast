@@ -1,9 +1,15 @@
 class UploadedFilesController < ApplicationController
-  before_filter :set_upload
+  before_filter :set_upload, only: [:create]
+  before_filter :set_uploaded_file, only: [:destroy]
 
   def create
     build_uploaded_file
     save_uploaded_file
+  end
+
+  def destroy
+    @uploaded_file.destroy
+    redirect_to @uploaded_file.upload
   end
 
   private
@@ -33,6 +39,10 @@ class UploadedFilesController < ApplicationController
   end
 
   def uploaded_files_scope
-    @upload.uploaded_files
+    @upload.andand.uploaded_files || current_user.uploaded_files
+  end
+
+  def set_uploaded_file
+    @uploaded_file = uploaded_files_scope.find(params[:id])
   end
 end
