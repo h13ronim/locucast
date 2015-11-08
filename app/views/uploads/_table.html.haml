@@ -1,12 +1,12 @@
-%table
+%table{ style: 'width: 100%' }
   %thead
     %tr
-      %th Count
-      %th Name
-      %th Number of items
+      %th{ style: "width: 85%" } Name
+      %th{ style: "width: 5%" } Items
+      %th{ style: "width: 10%" }
   %tbody
     - @uploads.each_with_index do |upload, i|
       %tr
-        %td= i
-        %td= link_to upload.name, upload_path(upload)
+        %td= link_to upload.name, upload
         %td= upload.uploaded_files.count
+        %td= link_to "Delete", upload, method: "delete", class: "button alert tiny delete-upload-button"
