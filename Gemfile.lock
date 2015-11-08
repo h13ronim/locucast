@@ -266,6 +266,8 @@ GEM
     request_store (1.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rollbar (2.5.2)
+      multi_json
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -386,6 +388,7 @@ DEPENDENCIES
   puma
   rails (= 4.2.4)
   rails_12factor
+  rollbar
   rspec-rails
   rspec-sidekiq
   s3_direct_upload!
