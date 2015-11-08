@@ -2,12 +2,13 @@
   .small-12.columns
     %h2 Your Audiobooks
 
-- @uploads.each_slice(4).with_index do |uploads_slice, i|
-  .row.audio-books-row
-    - uploads_slice.each do |upload|
-      = render partial: "audiobook_cart", locals: { upload: upload }
-    - if show_new_audiobook_cart?(@uploads.count, uploads_slice.count, i)
-      = render "new_audiobook_cart"
+.uploads
+  - @uploads.each_slice(4).with_index do |uploads_slice, i|
+    .row.audio-books-row
+      - uploads_slice.each do |upload|
+        = render partial: "audiobook_cart", locals: { upload: upload }
+      - if show_new_audiobook_cart?(@uploads.count, uploads_slice.count, i)
+        = render "new_audiobook_cart"
 
 - if @uploads.count % 4 == 0
   .row.audio-books-row
