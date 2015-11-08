@@ -58,12 +58,18 @@ class ApplicationController < ActionController::Base
       )
       raise upload.inspect unless upload.save(validate: false)
       UploadedFile.skip_callback(:commit, :after, :run_postprocess)
-      upload_template.uploaded_files.each do |uploaded_file_template|
+      if upload_template.uploaded_files_order.empty?
+        template_uploaded_files_scope = upload_template.uploaded_files
+      else
+        template_uploaded_files_scope = upload_template.uploaded_files_ordered
+      end
+      order_mapping = template_uploaded_files_scope.each do |uploaded_file_template|
         uploaded_file = upload.uploaded_files.new(
           uploaded_file_template.attributes.reject {|k,v| [:id].include?(k.to_sym) }
         )
         raise uploaded_file.inspect unless uploaded_file.save(validate: false)
-      end
+      end.map(&:id)
+      upload.update_attribute(:uploaded_files_order, order_mapping)
     end
     u
   end
