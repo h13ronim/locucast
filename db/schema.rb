@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20151108121559) do
     t.string   "description"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.integer  "uploaded_files_order",            default: [],              array: true
     t.string   "author"
+    t.integer  "uploaded_files_order",            default: [],              array: true
     t.datetime "deleted_at"
     t.string   "token",                limit: 64
     t.string   "picture_url"
