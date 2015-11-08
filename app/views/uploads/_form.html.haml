@@ -1,5 +1,7 @@
 = simple_form_for @upload, url: uploads_form_path(@upload) do |f|
-  = f.input :name, label: 'Title'
-  = f.input :author
-  = f.input :description, as: :text
-  = f.button :submit
+  .row
+    .large-6.small-12.columns
+      = f.input :name, label: 'Title'
+      = f.input :author
+      = f.input :description, as: :text
+      = f.button :submit
