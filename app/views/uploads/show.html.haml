@@ -23,10 +23,8 @@
               %td= file.name
               %td= link_to "Delete", file, method: "delete", class: "button alert tiny delete-uploaded-file-button"
 
-      = form_for @upload do |f|
-        = simple_form_for @upload do |f|
-          = f.button :submit, "Update order"
-
+      = simple_form_for @upload do |f|
+        = f.button :submit, "Update order"
 
     %h2
       Add new files
