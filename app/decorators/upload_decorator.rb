@@ -2,7 +2,11 @@ class UploadDecorator < Draper::Decorator
   delegate_all
 
   def title_with_author
-    [object.author, object.name].join(' - ')
+    if object.author.present?
+      "#{object.author} - #{object.name}"
+    else
+      object.name
+    end
   end
 
 end
