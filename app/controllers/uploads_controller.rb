@@ -16,7 +16,6 @@ class UploadsController < ApplicationController
   end
 
   def show
-    @upload = current_user.uploads.find(params[:id])
     @uploaded_files = @upload.uploaded_files
   end
 
