@@ -29,6 +29,10 @@
 
     = render "uploaded_files/form"
 
+    %h3
+      Add picture
+
+    = render "picture_form"
 :coffeescript
   window.prepareUploadedFilesOrderHiddenInputs = () ->
     $.each(getOrderUploadedFilesIds(), (i, val) ->
