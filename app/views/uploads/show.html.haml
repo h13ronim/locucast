@@ -19,7 +19,7 @@
           - @uploaded_files.each_with_index do |file, i|
             %tr.uploaded_file{ id: "uploaded_file_#{file.id}" }
               %td.uploaded_file_position= i + 1
-              %td= file.name
+              %td= file.title_or_name
               %td= link_to "Delete", file, method: "delete", class: "button alert tiny delete-uploaded-file-button"
 
       = simple_form_for @upload do |f|
