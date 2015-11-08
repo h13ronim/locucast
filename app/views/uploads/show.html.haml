@@ -9,6 +9,7 @@
     = cover_image(@upload, false, "th")
     = render "cover_form"
     %p= @upload.description
+    = link_to 'Subscribe', tokenized_feed_path(@upload), class: 'button', target: '_blank'
 
   .large-9.small-12.columns
     - if @uploaded_files.any?
