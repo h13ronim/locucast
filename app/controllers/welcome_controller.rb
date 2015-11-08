@@ -6,6 +6,6 @@ class WelcomeController < ApplicationController
 
   def guest
     create_guest_user
-    redirect_to :audiobooks
+    redirect_to audiobooks_path
   end
 end
