@@ -3,7 +3,7 @@
     %h2{ style: "display: inline" }
       = @upload.title_with_author
     %span
-      = link_to "Edit", edit_upload_path(@upload)
+      = link_to "Edit", edit_audiobook_path(@upload)
 .row
   .large-3.small-12.columns
     = cover_image(@upload, false, "th")

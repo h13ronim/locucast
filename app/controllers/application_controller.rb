@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_or_guest_user
 
   def after_sign_in_path_for(resource)
-    request.env['omniauth.origin'] || stored_location_for(resource) || uploads_path
+    request.env['omniauth.origin'] || stored_location_for(resource) || audiobooks_path
   end
 
   # if user is logged in, return current_user, else return guest_user

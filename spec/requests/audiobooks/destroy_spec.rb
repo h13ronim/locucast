@@ -3,7 +3,7 @@ require 'rails_helper'
 describe '/uploads/destroy', :type => :request do
   subject { delete request_url }
 
-  let(:request_url) { "/uploads/#{upload_id}" }
+  let(:request_url) { "/audiobooks/#{upload_id}" }
   let(:upload_id) { 1 }
 
   context 'when unauthenticated' do
@@ -31,7 +31,7 @@ describe '/uploads/destroy', :type => :request do
       it "redirects to index action" do
         subject
 
-        expect(response).to redirect_to(uploads_path)
+        expect(response).to redirect_to(audiobooks_path)
       end
 
       it "sets flash[:notice]" do
@@ -53,7 +53,7 @@ describe '/uploads/destroy', :type => :request do
       it "redirects to :index action" do
         subject
 
-        expect(response).to redirect_to(uploads_path)
+        expect(response).to redirect_to(audiobooks_path)
       end
     end
   end

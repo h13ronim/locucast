@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe '/uploads/new', :type => :request do
-  let(:request_url) { '/uploads/new' }
+describe '/audiobooks/new', :type => :request do
+  let(:request_url) { '/audiobooks/new' }
 
   context 'when unauthenticated' do
     before { get request_url }

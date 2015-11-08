@@ -41,7 +41,7 @@ describe '/uploaded_files', :type => :request do
     it "redirects to Upload" do
       subject
 
-      expect(response).to redirect_to(assigns(:upload))
+      expect(response).to redirect_to(audiobook_path(assigns(:upload)))
     end
 
     it "creates UploadedFile" do

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe '/uploads/create', type: :request do
-  let(:request_url) { '/uploads' }
+  let(:request_url) { '/audiobooks' }
   let(:query) do
     {
       "utf8"=>"✓",
@@ -28,6 +28,6 @@ describe '/uploads/create', type: :request do
       post request_url, query
     end
 
-    it { expect(response).to redirect_to(assigns(:upload)) }
+    it { expect(response).to redirect_to(audiobook_path(assigns(:upload))) }
   end
 end

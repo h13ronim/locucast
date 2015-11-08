@@ -18,7 +18,7 @@ describe '/users/sign_in', :type => :request do
     it "redirects to uploads/index action" do
       subject
 
-      expect(response).to redirect_to(uploads_path)
+      expect(response).to redirect_to(audiobooks_path)
     end
   end
 

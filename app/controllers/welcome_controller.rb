@@ -6,6 +6,6 @@ class WelcomeController < ApplicationController
 
   def guest
     create_guest_user
-    redirect_to :uploads
+    redirect_to :audiobooks
   end
 end

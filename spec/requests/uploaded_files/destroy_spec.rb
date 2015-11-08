@@ -31,7 +31,7 @@ describe '/uploaded_files/destroy', :type => :request do
     it "redirects to Upload" do
       subject
 
-      expect(response).to redirect_to(upload)
+      expect(response).to redirect_to(audiobook_path(upload))
     end
   end
 end

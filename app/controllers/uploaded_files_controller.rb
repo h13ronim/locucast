@@ -9,7 +9,7 @@ class UploadedFilesController < ApplicationController
 
   def destroy
     @uploaded_file.destroy
-    redirect_to @uploaded_file.upload
+    redirect_to audiobook_path(@uploaded_file.upload)
   end
 
   private
@@ -23,7 +23,7 @@ class UploadedFilesController < ApplicationController
   end
 
   def save_uploaded_file
-    redirect_to @upload if @uploaded_file.save
+    redirect_to audiobook_path(@upload) if @uploaded_file.save
   end
 
   def build_uploaded_file

@@ -1,5 +1,5 @@
 = s3_uploader_form id: "picture-uploader",
-                   callback_url: upload_path(@upload),
+                   callback_url: audiobook_path(@upload),
                    callback_method: "PUT",
                    callback_param: "upload[picture_url]" do
   %button.file-upload{ style: "margin-left: 0px" }

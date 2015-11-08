@@ -3,7 +3,7 @@ require 'rails_helper'
 describe '/uploads/update', type: :request do
   subject { put request_url, query }
 
-  let(:request_url) { "/uploads/#{upload_id}" }
+  let(:request_url) { "/audiobooks/#{upload_id}" }
   let(:upload_id) { 1 }
   let(:query) { {} }
 
@@ -39,7 +39,7 @@ describe '/uploads/update', type: :request do
       it 'redirects to show action' do
         subject
 
-        expect(response).to redirect_to(upload_path(upload))
+        expect(response).to redirect_to(audiobook_path(upload))
       end
 
       it "updates Upload#uploaded_files_order" do

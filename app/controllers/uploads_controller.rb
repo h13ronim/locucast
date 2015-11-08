@@ -23,7 +23,7 @@ class UploadsController < ApplicationController
 
   def update
     if update_upload
-      redirect_to @upload
+      redirect_to audiobook_path(@upload)
     else
       render :edit
     end
@@ -47,7 +47,7 @@ class UploadsController < ApplicationController
   end
 
   def save_upload
-    redirect_to @upload if @upload.save
+    redirect_to audiobook_path(@upload) if @upload.save
   end
 
   def build_upload

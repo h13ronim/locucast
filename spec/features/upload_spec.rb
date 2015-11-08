@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe 'upload', :type => :feature do
+describe 'audiobook', :type => :feature do
   it 'renders view', js: true do
     login_as(create(:user), :scope => :user)
-    visit '/uploads/new'
+    visit '/audiobooks/new'
     expect(page).to have_content('Add Audiobook')
     fill_in('Title', with: 'my audiobook')
     fill_in('Author', with: 'my new audiobook author')

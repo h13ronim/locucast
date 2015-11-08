@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe '/uploads/show', :type => :request do
+describe '/audiobooks/show', :type => :request do
   subject { get request_url }
 
-  let(:request_url) { "/uploads/#{upload_id}" }
+  let(:request_url) { "/audiobooks/#{upload_id}" }
   let(:upload_id) { 1 }
 
   context 'when unauthenticated' do
@@ -50,7 +50,7 @@ describe '/uploads/show', :type => :request do
       end
 
       context "and there is show_success_upload_flash param set to true passed" do
-        let(:request_url) { "/uploads/#{upload_id}?show_success_upload_flash=true" }
+        let(:request_url) { "/audiobooks/#{upload_id}?show_success_upload_flash=true" }
 
         it "returns flash message" do
           subject

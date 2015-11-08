@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe '/uploads/edit', :type => :request do
+describe '/audiobooks/edit', :type => :request do
   subject { get request_url }
 
-  let(:request_url) { "/uploads/#{upload_id}/edit" }
+  let(:request_url) { "/audiobooks/#{upload_id}/edit" }
   let(:upload_id) { 1 }
 
   context 'when unauthenticated' do
