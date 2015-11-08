@@ -1,0 +1,7 @@
+.row
+  .small-12.columns
+    %h1
+      List of your uploads
+    = link_to "Add new upload", new_upload_path
+
+    = render "uploads/table"

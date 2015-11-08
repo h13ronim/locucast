@@ -1,0 +1,12 @@
+%table
+  %thead
+    %tr
+      %th Count
+      %th Name
+      %th Number of items
+  %tbody
+    - @uploads.each_with_index do |upload, i|
+      %tr
+        %td= i
+        %td= link_to upload.name, upload_path(upload)
+        %td= upload.uploaded_files.count

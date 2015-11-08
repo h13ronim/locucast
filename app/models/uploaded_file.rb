@@ -8,7 +8,7 @@ class UploadedFile < ActiveRecord::Base
   validates :upload, presence: true
   validates :url, presence: true
 
-  after_commit :run_postprocess, :on => :create
+  #after_commit :run_postprocess, :on => :create
 
   def name
     url.split("/").last

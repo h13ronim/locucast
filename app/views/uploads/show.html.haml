@@ -1,7 +1,12 @@
 .row
   .small-12.columns
+    %h1
+      = @upload.name
+
+    = render "form"
+
     - if @upload.uploaded_files.any?
-      %h1
+      %h2
         Uploaded files
       %ol#uploaded_files
         - @upload.uploaded_files.each do |file|
@@ -11,9 +16,7 @@
         = simple_form_for @upload do |f|
           = f.button :submit, "Update order"
 
-      = link_to('Subscribe', feed_path(@upload, format: :xml, target: '_blank'))
-
-    %h1
+    %h2
       Add new files
 
     = render "uploaded_files/form"

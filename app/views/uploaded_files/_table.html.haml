@@ -1,0 +1,12 @@
+%table
+  %thead
+    %tr
+      %th Count
+      %th Title
+      %th Duration
+  %tbody
+    - @uploaded_files.each_with_index do |file, i|
+      %tr
+        %td= i
+        %td= file.title
+        %td= file.duration

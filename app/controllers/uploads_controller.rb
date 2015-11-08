@@ -6,12 +6,19 @@ class UploadsController < ApplicationController
     build_upload
   end
 
+  def index
+    @uploads = current_user.uploads
+  end
+
   def create
     build_upload
     save_upload or render :new
   end
 
-  def show ; end
+  def show
+    @upload = current_user.uploads.find(params[:id])
+    @uploaded_files = @upload.uploaded_files
+  end
 
   def update
     if update_upload
@@ -36,7 +43,7 @@ class UploadsController < ApplicationController
   end
 
   def upload_params
-    params[:upload].andand.permit(:name, :description, uploaded_files_order: [])
+    params[:upload].andand.permit(:name, :description, :author, uploaded_files_order: [])
   end
 
   def upload_scope
