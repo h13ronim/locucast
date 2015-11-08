@@ -30,4 +30,30 @@ RSpec.describe UploadedFile, type: :model do
     it { expect(subject.duration).to eq(46.628375) }
     it { expect(subject.length).to eq(373155) }
   end
+
+  context 'when adding url with national characters' do
+    let(:url) { 'http://www.詹姆斯.com/zażółć gęślą jaźń.mp3' }
+    subject { build(:uploaded_file, url: url) }
+
+    let(:vcr_chain_cassettes) { nil }
+
+    it { is_expected.to be_valid }
+
+    describe 'url after validation' do
+      before { subject.valid? }
+
+      it 'returns normalized url' do
+        expect(subject.url).to eq(
+          [
+            'http://www.xn--8ws00zhy3a.com',
+            'za%C5%BC%C3%B3%C5%82%C4%87%20g%C4%99%C5%9Bl%C4%85%20ja%C5%BA%C5%84.mp3'
+          ].join('/')
+        )
+      end
+
+      it 'returns denormalized name' do
+        expect(subject.name).to eq('zażółć gęślą jaźń.mp3')
+      end
+    end
+  end
 end

@@ -9,10 +9,12 @@ class UploadedFile < ActiveRecord::Base
   validates :upload, presence: true
   validates :url, presence: true, :url => true
 
+  before_validation :normalize_url
+
   #after_commit :run_postprocess, :on => :create
 
   def name
-    url.split("/").last
+    denormalized_url.split("/").last
   end
 
   # TODO: this is stub until better approach to sorting arrives
@@ -41,5 +43,13 @@ class UploadedFile < ActiveRecord::Base
     self.duration = mp3info.length
     self.length = file_io.size
     save!
+  end
+
+  def normalize_url
+    self.url = Addressable::URI.parse(url.to_s).normalize
+  end
+
+  def denormalized_url
+    Addressable::URI.unencode(url.to_s)
   end
 end
