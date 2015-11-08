@@ -1,4 +1,4 @@
-= simple_form_for @upload, url: audiobooks_path do |f|
+= simple_form_for @upload, url: audiobooks_path(@upload if params[:action] == 'edit') do |f|
   = f.input :name, label: 'Title'
   = f.input :author
   = f.input :description, as: :text
