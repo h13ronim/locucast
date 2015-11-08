@@ -11,7 +11,7 @@ class UploadedFile < ActiveRecord::Base
 
   before_validation :normalize_url
 
-  #after_commit :run_postprocess, :on => :create
+  after_commit :run_postprocess, on: :create
 
   def name
     denormalized_url.split("/").last
@@ -25,7 +25,7 @@ class UploadedFile < ActiveRecord::Base
   private
 
   def run_postprocess
-    postprocess # TODO: sidekiq
+    UploadedFilePostprocessJob.perform_later(self)
   end
 
   def file_io

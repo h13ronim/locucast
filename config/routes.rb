@@ -8,6 +8,13 @@ Rails.application.routes.draw do
   resources :feeds, only: :show, :defaults => { :format => :xml }
 
   post 'guest', to: 'welcome#guest'
+
+  require 'sidekiq/web'
+  Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+    username == ENV['SIDEKIQ_USERNAME'] && password == ENV['SIDEKIQ_PASSWORD']
+  end if Rails.env.production?
+  mount Sidekiq::Web, at: "/sidekiq"
+
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 

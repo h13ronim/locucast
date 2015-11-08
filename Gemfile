@@ -45,6 +45,9 @@ gem 'order_as_specified'
 gem 'paranoia'
 gem 'validate_url'
 
+gem 'sidekiq'
+gem 'sinatra', :require => nil
+
 gem 's3_direct_upload', github: 'RobotsAndPencils/s3_direct_upload'
 
 gem 'draper'
@@ -58,8 +61,6 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'guard-migrate'
   gem 'factory_girl_rails'
-  gem 'vcr'
-  gem 'webmock'
 end
 
 group :development do
@@ -68,12 +69,16 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'foreman'
 end
 
 group :test do
   gem 'capybara'
   gem 'poltergeist'
   gem 'shoulda-matchers'
+  gem 'rspec-sidekiq'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :production do
