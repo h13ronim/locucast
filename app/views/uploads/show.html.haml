@@ -10,11 +10,12 @@
       %h3
         Chapters
       %table{ style: 'width: 100%' }
-        %tbody#uploaded_files
+        %tbody
           %tr
             %th{ style: "width: 5%" }
             %th{ style: "width: 70%"} Title
             %th
+        %tbody#uploaded_files
           - @uploaded_files.each_with_index do |file, i|
             %tr.uploaded_file{ id: "uploaded_file_#{file.id}" }
               %td.uploaded_file_position= i + 1
