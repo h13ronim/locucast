@@ -25,7 +25,12 @@
               %td.uploaded_file_position= i + 1
               %td{ style: "text-overflow: ellipsis; overflow: hidden; max-width: 340px" }= file.title_or_name
               %td= link_to "Delete", chapter_path(file), method: "delete", class: "button alert tiny delete-uploaded-file-button"
-    = render "uploaded_files/form"
+    .row
+      .large-3.small-6.columns.show-for-medium-up
+        = simple_form_for audiobook_path(@upload) do |f|
+          = f.button :submit, "Update order"
+      .large-4.small-12.columns.end
+        = render "uploaded_files/form"
 
 = render "shared/progress_bar_template"
 
