@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   end
 
   has_many :uploads
+  has_many :uploaded_files, through: :uploads
 end
