@@ -4,10 +4,10 @@ describe 'upload', :type => :feature do
   it 'renders view', js: true do
     login_as(create(:user), :scope => :user)
     visit '/uploads/new'
-    expect(page).to have_content('Upload your files')
-    fill_in('Name', with: 'my audiobook')
-    fill_in('Description', with: 'my new audiobook')
+    expect(page).to have_content('Add Audiobook')
+    fill_in('Title', with: 'my audiobook')
     fill_in('Author', with: 'my new audiobook author')
+    fill_in('Description', with: 'my new audiobook')
     # TODO: add multiple files
     #expect {
       #expect {

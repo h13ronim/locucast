@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_filter :set_upload, only: [:show, :update, :edit, :destroy]
+  before_filter :get_upload, only: [:show, :update, :edit, :destroy]
   before_filter :set_success_upload_flash, only: [:show]
 
   def new
@@ -60,8 +60,8 @@ class UploadsController < ApplicationController
     current_user.uploads
   end
 
-  def set_upload
-    @upload = current_user.uploads.find(params[:id])
+  def get_upload
+    @upload = current_user.uploads.find(params[:id]).decorate
   end
 
   def update_upload

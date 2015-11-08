@@ -46,6 +46,8 @@ gem 'paranoia'
 
 gem 's3_direct_upload', github: 'RobotsAndPencils/s3_direct_upload'
 
+gem 'draper'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

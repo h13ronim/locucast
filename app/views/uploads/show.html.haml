@@ -1,21 +1,19 @@
 .row
   .small-12.columns
-    %h1
-      = @upload.name
-
-    = render "form"
+    %h2
+      = @upload.title_with_author
 
   .small-12.columns
     - if @uploaded_files.any?
       = link_to('Subscribe', tokenized_feed_path(@upload), class: 'button')
 
-      %h2
-        Uploaded files
+      %h3
+        Chapters
       %table{ style: 'width: 100%' }
         %tbody#uploaded_files
           %tr
             %th{ style: "width: 5%" }
-            %th{ style: "width: 70%"} Name
+            %th{ style: "width: 70%"} Title
             %th
           - @uploaded_files.each_with_index do |file, i|
             %tr.uploaded_file{ id: "uploaded_file_#{file.id}" }
@@ -26,8 +24,8 @@
       = simple_form_for @upload do |f|
         = f.button :submit, "Update order"
 
-    %h2
-      Add new files
+    %h3
+      Add chapters
 
     = render "uploaded_files/form"
 
