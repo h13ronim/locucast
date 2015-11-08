@@ -12,4 +12,4 @@
       %p.description= truncate(upload.description, length: 62, omission: "...")
     .action
       = link_to("Subscribe", tokenized_feed_path(upload))
-      = link_to("Details", upload)
+      = link_to("Details", audiobook_path(upload))
