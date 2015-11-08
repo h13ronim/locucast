@@ -20,7 +20,6 @@ describe Feed do
   it { expect(feed.description).to eq(description) }
 
   it { expect(feed.author).to eq(author) }
-  it { expect(feed.link).to eq(link) }
 
   describe '#items' do
     let(:items) { feed.items }

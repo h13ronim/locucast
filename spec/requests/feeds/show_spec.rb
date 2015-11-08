@@ -44,7 +44,7 @@ describe '/feeds/show', :type => :request do
 <rss xmlns:itunes=\"http://www.itunes.com/dtds/podcast-1.0.dtd\" version=\"2.0\">
   <channel>
     <title>#{upload.name}</title>
-    <link>http://www.example.com/feeds/#{upload.id}.xml</link>
+    <link>http://www.example.com/</link>
     <description>#{upload.description}</description>
     <itunes:summary>#{upload.description}</itunes:summary>
     <itunes:author></itunes:author>
