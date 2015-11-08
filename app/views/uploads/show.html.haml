@@ -15,11 +15,13 @@
         %tbody#uploaded_files
           %tr
             %th{ style: "width: 5%" }
-            %th{ style: "width: 95%"} Name
+            %th{ style: "width: 70%"} Name
+            %th
           - @uploaded_files.each_with_index do |file, i|
             %tr{ id: "uploaded_file_#{file.id}" }
               %td= i + 1
               %td= file.name
+              %td= link_to "Delete", file, method: "delete", class: "button alert tiny delete-uploaded-file-button"
 
       = form_for @upload do |f|
         = simple_form_for @upload do |f|
