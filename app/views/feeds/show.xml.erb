@@ -7,14 +7,14 @@
     <itunes:summary><%= @feed.description %></itunes:summary>
     <itunes:author><%= @feed.author %></itunes:author>
     <generator>Locucast</generator>
-    <%- @feed.items.each do |item| %>
+    <%- @feed.items.each_with_index do |item, position| %>
     <item>
-      <title><%= item.title %></title>
+      <title><%= item.title || item.name %></title>
       <itunes:author><%= item.author %></itunes:author>
       <itunes:image href="<%= item.image %>"/>
       <enclosure url="<%= item.enclosure_url %>" length="<%= item.enclosure_length %>" type="<%= item.enclosure_file_type %>"/>
       <guid isPermaLink="false"><%= item.guid %></guid>
-      <pubDate><%= item.pub_date %></pubDate>
+      <pubDate><%= item.pub_date(position) %></pubDate>
       <itunes:duration><%= item.duration %></itunes:duration>
     </item>
     <%- end %>

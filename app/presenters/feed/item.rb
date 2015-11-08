@@ -6,7 +6,7 @@ class Feed::Item < ActiveType::Object
     @upload = upload
   end
 
-  delegate :title, :author, :guid, :position, to: :uploaded_file
+  delegate :title, :name, :author, :guid, to: :uploaded_file
   delegate :url, :length, to: :uploaded_file, prefix: :enclosure
 
   def image
@@ -17,8 +17,8 @@ class Feed::Item < ActiveType::Object
     uploaded_file.duration.to_i
   end
 
-  def pub_date
-    upload.created_at.at_beginning_of_day.advance(minutes: position)
+  def pub_date(position)
+    upload.created_at.beginning_of_day.advance(minutes: position).rfc2822
   end
 
   def enclosure_file_type
