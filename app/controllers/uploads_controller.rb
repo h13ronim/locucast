@@ -8,7 +8,6 @@ class UploadsController < ApplicationController
 
   def index
     @uploads = current_or_guest_user.uploads
-    @rails_rumble_voting_banner = true
   end
 
   def create
