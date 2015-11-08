@@ -31,7 +31,7 @@
           - if user_signed_in?
             %ul.left
               %li= link_to "Audiobooks", uploads_path
-    - if flash[:notice]
+    - if flash[:notice] && signed_in?
       .row
         .small-12.columns
           .alert-box.success.radius{"data-alert" => ""}
