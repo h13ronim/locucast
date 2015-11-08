@@ -7,7 +7,7 @@
 
   .small-12.columns
     - if @uploaded_files.any?
-      = link_to('Subscribe', feed_path(@upload, format: :xml, target: '_blank'), class: 'button')
+      = link_to('Subscribe', tokenized_feed_path(@upload), class: 'button')
 
       %h2
         Uploaded files

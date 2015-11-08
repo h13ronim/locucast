@@ -58,7 +58,16 @@ describe '/uploads/show', :type => :request do
           expect(flash[:notice]).to eq("All files uploaded.")
         end
       end
+
+      it 'has tokenized subscribe button' do
+        subject
+        expect(response.body).to include(
+          "<a class=\"button\" " +
+          "href=\"/feeds/#{upload.id}?target=_blank&token=#{upload.token}\">" +
+          "Subscribe" +
+          "</a>"
+        )
+      end
     end
   end
 end
-
