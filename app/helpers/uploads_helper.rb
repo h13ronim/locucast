@@ -30,4 +30,12 @@ module UploadsHelper
       with_link ? link_to(add_cover_url_image, audiobook_path(upload), options) : add_cover_url_image(options)
     end
   end
+
+  def uploads_form_path(upload)
+    if params[:action] == 'edit'
+      audiobook_path(@upload)
+    else
+      audiobooks_path
+    end
+  end
 end
