@@ -13,7 +13,6 @@
     = javascript_include_tag "https://code.jquery.com/ui/1.11.4/jquery-ui.js"
     = csrf_meta_tag
     = render 'layouts/rollbar' if Rails.env.production?
-    = render 'layouts/rails_rumble_voting_banner' if Rails.env.production? && @rails_rumble_voting_banner
 
   %body
     .contain-to-grid.sticky
@@ -40,3 +39,5 @@
             =flash[:notice]
             %a.close{:href => "#"} ×
     = yield
+
+  = render 'layouts/rails_rumble_voting_banner' if Rails.env.production? && @rails_rumble_voting_banner
