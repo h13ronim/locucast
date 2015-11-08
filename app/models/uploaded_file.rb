@@ -2,6 +2,7 @@ require 'open-uri'
 
 class UploadedFile < ActiveRecord::Base
   extend OrderAsSpecified
+  acts_as_paranoid
 
   belongs_to :upload
 
