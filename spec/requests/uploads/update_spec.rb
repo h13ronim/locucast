@@ -44,8 +44,8 @@ describe '/uploads/update', type: :request do
         { "upload" => { "name"=> '' } }
       end
 
-      it 'renders show action' do
-        expect(subject).to render_template(:show)
+      it 'renders edit action' do
+        expect(subject).to render_template(:edit)
       end
     end
   end

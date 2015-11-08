@@ -23,7 +23,7 @@ class UploadsController < ApplicationController
     if update_upload
       redirect_to @upload
     else
-      render :show
+      render :edit
     end
   end
 
