@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_filter :set_upload, only: [:show, :update, :edit]
+  before_filter :set_upload, only: [:show, :update, :edit, :destroy]
   before_filter :set_success_upload_flash, only: [:show]
 
   def new
@@ -28,6 +28,15 @@ class UploadsController < ApplicationController
   end
 
   def edit ; end
+
+  def destroy
+    if @upload.destroy
+      flash[:notice] = "Audiobook successfully deleted."
+    else
+      flash[:error] = "Audiobook deletion failed."
+    end
+    redirect_to action: :index
+  end
 
   private
 
