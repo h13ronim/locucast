@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :audiobooks, controller: :uploads
-  resources :uploaded_files, only: [:create, :destroy]
+  resources :chapters, controller: :uploaded_files, only: [:create, :destroy]
   resources :feeds, only: :show, :defaults => { :format => :xml }
 
   post 'guest', to: 'welcome#guest'

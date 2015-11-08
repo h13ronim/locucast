@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe '/uploaded_files/destroy', :type => :request do
+describe '/chapters/destroy', :type => :request do
   subject { delete request_url }
 
-  let(:request_url) { "/uploaded_files/#{uploaded_file_id}" }
+  let(:request_url) { "/chapters/#{uploaded_file_id}" }
   let(:uploaded_file_id) { 1 }
 
   context 'when unauthenticated' do

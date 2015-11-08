@@ -24,7 +24,7 @@
             %tr.uploaded_file{ id: "uploaded_file_#{file.id}" }
               %td.uploaded_file_position= i + 1
               %td{ style: "text-overflow: ellipsis; overflow: hidden; max-width: 340px" }= file.title_or_name
-              %td= link_to "Delete", file, method: "delete", class: "button alert tiny delete-uploaded-file-button"
+              %td= link_to "Delete", chapter_path(file), method: "delete", class: "button alert tiny delete-uploaded-file-button"
     = render "uploaded_files/form"
 
 = render "shared/progress_bar_template"
