@@ -2,9 +2,9 @@
                    callback_url: upload_path(@upload),
                    callback_method: "PUT",
                    callback_param: "upload[picture_url]" do
-
-
-  = file_field_tag :file, multiple: true, accept: "image/*"
+  %button.file-upload{ style: "margin-left: 0px" }
+    = file_field_tag :file, multiple: true, accept: "image/*", class: "file-input"
+    Choose cover
 
 #picture-upload-progress-bar
 

@@ -15,7 +15,19 @@ module UploadsHelper
     (4 * (current_slice_index + 1)) - (4 - uploads_slice_count) == uploads_count
   end
 
-  def add_cover_url_image
-    image_tag("https://dummyimage.com/220x220/ffffff/ffab40.png&text=Add+Cover")
+  def add_cover_url_image(options = {})
+    image_tag("https://dummyimage.com/220x220/ffffff/ffab40.png&text=Add+Cover", options)
+  end
+
+  def cover_image(upload, with_link = true, class_name = nil)
+    options = {}
+    options[:class] = class_name if class_name
+    options[:style] = "min-height: 220px"
+
+    if upload.picture_url
+      image_tag(upload.picture_url, options)
+    else
+      with_link ? link_to(add_cover_url_image, upload, options) : add_cover_url_image(options)
+    end
   end
 end
