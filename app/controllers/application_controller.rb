@@ -63,12 +63,13 @@ class ApplicationController < ActionController::Base
       else
         template_uploaded_files_scope = upload_template.uploaded_files_ordered
       end
-      order_mapping = template_uploaded_files_scope.each do |uploaded_file_template|
+      order_mapping = template_uploaded_files_scope.map do |uploaded_file_template|
         uploaded_file = upload.uploaded_files.new(
           uploaded_file_template.attributes.reject {|k,v| [:id].include?(k.to_sym) }
         )
         raise uploaded_file.inspect unless uploaded_file.save(validate: false)
-      end.map(&:id)
+        uploaded_file.id
+      end
       upload.update_attribute(:uploaded_files_order, order_mapping)
     end
     u
