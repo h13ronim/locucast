@@ -5,11 +5,11 @@
 
     = render "form"
 
-    - if @upload.uploaded_files.any?
+    - if @uploaded_files.any?
       %h2
         Uploaded files
       %ol#uploaded_files
-        - @upload.uploaded_files.each do |file|
+        - @uploaded_files.each do |file|
           %li{ id: "uploaded_file_#{file.id}" }= file.name
 
       = form_for @upload do |f|
@@ -24,7 +24,7 @@
 :coffeescript
   window.prepareUploadedFilesOrderHiddenInputs = () ->
     $.each(getOrderUploadedFilesIds(), (i, val) ->
-      $('.edit_upload').prepend(
+      $('.edit_upload').append(
         "<input multiple='multiple' value='\#{val}' type='hidden' name='upload[uploaded_files_order][]' id='upload_uploaded_files_order'>"
       )
     )
