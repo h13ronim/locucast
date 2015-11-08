@@ -3,12 +3,9 @@
     = file_field_tag :file, multiple: true, accept: "audio/mp3", class: "file-input"
     Choose files
 
-.js-progress-bars
-
 :coffeescript
   jQuery ->
     $("#s3-uploader").S3Uploader
-      progress_bar_target: $('.js-progress-bars')
       additional_data: { upload_id: "#{@upload.id}" }
     $(document).bind 's3_uploads_complete', ->
       location.href = location.href + "?show_success_upload_flash=true"
