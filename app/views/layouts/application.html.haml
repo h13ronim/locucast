@@ -33,10 +33,10 @@
             %ul.left
               %li= link_to "Audiobooks", audiobooks_path
     - if flash[:notice] && signed_in?
-      .row
+      .row{ style: "margin-top: 20px" }
         .small-12.columns
           .alert-box.success.radius{"data-alert" => ""}
-            =flash[:notice]
+            = flash[:notice]
             %a.close{:href => "#"} ×
     = yield
 
