@@ -1,0 +1,15 @@
+.large-3.small-12.columns
+  .card
+    .image
+      = image_tag "http://ecx.images-amazon.com/images/I/51E59wXeDCL._SL300_.jpg"
+    .content
+      %p.name
+        Name:
+        = truncate(upload.name, length: 15, omission: "...")
+      %p.author
+        Author:
+        = truncate(upload.author, length: 15, omission: "...")
+      %p.description= truncate(upload.description, length: 62, omission: "...")
+    .action
+      = link_to("Subscribe", tokenized_feed_path(upload))
+      = link_to("Edit", upload)
