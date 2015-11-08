@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :uploaded_files, only: [:create, :destroy]
   resources :feeds, only: :show, :defaults => { :format => :xml }
 
+  post 'guest', to: 'welcome#guest'
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 

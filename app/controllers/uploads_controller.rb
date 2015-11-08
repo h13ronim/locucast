@@ -7,7 +7,7 @@ class UploadsController < ApplicationController
   end
 
   def index
-    @uploads = current_user.uploads
+    @uploads = current_or_guest_user.uploads
   end
 
   def create
@@ -61,11 +61,11 @@ class UploadsController < ApplicationController
   end
 
   def upload_scope
-    current_user.uploads
+    current_or_guest_user.uploads
   end
 
   def get_upload
-    @upload = current_user.uploads.find(params[:id]).decorate
+    @upload = current_or_guest_user.uploads.find(params[:id]).decorate
   end
 
   def update_upload

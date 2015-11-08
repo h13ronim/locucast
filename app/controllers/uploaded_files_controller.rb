@@ -19,7 +19,7 @@ class UploadedFilesController < ApplicationController
   end
 
   def uploads_scope
-    current_user.uploads
+    current_or_guest_user.uploads
   end
 
   def save_uploaded_file
@@ -39,7 +39,7 @@ class UploadedFilesController < ApplicationController
   end
 
   def uploaded_files_scope
-    @upload.andand.uploaded_files || current_user.uploaded_files
+    @upload.andand.uploaded_files || current_or_guest_user.uploaded_files
   end
 
   def set_uploaded_file

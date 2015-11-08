@@ -13,7 +13,7 @@ class FeedsController < ApplicationController
     if token?
       @upload ||= Upload.where(token: params[:token]).find(params[:id])
     else
-      @upload ||= current_user.uploads.find(params[:id])
+      @upload ||= current_or_guest_user.uploads.find(params[:id])
     end
   end
 
