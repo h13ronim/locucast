@@ -14,4 +14,8 @@ module UploadsHelper
 
     (4 * (current_slice_index + 1)) - (4 - uploads_slice_count) == uploads_count
   end
+
+  def add_cover_url_image
+    image_tag("https://dummyimage.com/220x220/ffffff/ffab40.png&text=Add+Cover")
+  end
 end
