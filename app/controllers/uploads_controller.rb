@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_filter :set_upload, only: [:show, :update]
+  before_filter :set_upload, only: [:show, :update, :edit]
   before_filter :set_success_upload_flash, only: [:show]
 
   def new
@@ -26,6 +26,8 @@ class UploadsController < ApplicationController
       render :show
     end
   end
+
+  def edit ; end
 
   private
 
