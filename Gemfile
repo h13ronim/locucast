@@ -43,6 +43,7 @@ gem 'active_type'
 gem 'mp3info'
 gem 'order_as_specified'
 gem 'paranoia'
+gem 'validate_url'
 
 gem 's3_direct_upload', github: 'RobotsAndPencils/s3_direct_upload'
 
@@ -57,6 +58,8 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'guard-migrate'
   gem 'factory_girl_rails'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do

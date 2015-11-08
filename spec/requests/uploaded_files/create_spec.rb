@@ -3,6 +3,9 @@ require 'rails_helper'
 describe '/uploaded_files', :type => :request do
   subject { post request_url, query }
 
+  include_context :vcr_chain
+  let(:vcr_chain_cassettes) { :upload_url_mp3 }
+
   let(:request_url) { '/uploaded_files' }
   let(:query) { {} }
 

@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :uploaded_file do
     upload
-    # we may actually use that as we use open()
-    url Rails.root.join('spec/fixtures/1984-01_64kb.mp3')
+    url 'https://archive.org/download/aesop_fables_volume_one_librivox/fables_01_01_aesop_64kb.mp3'
   end
 end

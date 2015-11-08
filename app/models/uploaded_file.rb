@@ -7,7 +7,7 @@ class UploadedFile < ActiveRecord::Base
   belongs_to :upload
 
   validates :upload, presence: true
-  validates :url, presence: true
+  validates :url, presence: true, :url => true
 
   #after_commit :run_postprocess, :on => :create
 

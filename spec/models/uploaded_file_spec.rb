@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe UploadedFile, type: :model do
-  let(:url) { "https://locucast.s3.amazonaws.com/uploads/1446903042750-3rgk73jgxiyynwmi-0e9f013acee10d99d97dcd3d3bf8bed9/10x10.png" }
-  subject { create(:uploaded_file, url: url) }
+  subject { create(:uploaded_file) }
+
+  include_context :vcr_chain
+  let(:vcr_chain_cassettes) { :upload_url_mp3 }
 
   it { is_expected.to belong_to(:upload) }
 
@@ -11,22 +13,21 @@ RSpec.describe UploadedFile, type: :model do
 
   describe "#name" do
     it "returns extracted name from url" do
-      expect(subject.name).to eq "10x10.png"
+      expect(subject.name).to eq('fables_01_01_aesop_64kb.mp3')
     end
   end
 
   describe "#postprocess" do
-    let(:url) { Rails.root.join('spec/fixtures/1984-01_64kb.mp3') }
-    subject { create(:uploaded_file, url: url) }
+    subject { create(:uploaded_file) }
 
     before do
       subject.send(:postprocess)
     end
 
-    it { expect(subject.title).to eq('1984-01') }
-    it { expect(subject.author).to eq('George Orwell R-(Frank Muller)') }
-    it { expect(subject.guid).to eq('0b6b8524741a72d04861b022027834eec220086f336b86c2389c8946a03b6755') }
-    it { expect(subject.duration).to eq(2643.461) }
-    it { expect(subject.length).to eq(21147816) }
+    it { expect(subject.title).to eq('The Fox and The Grapes') }
+    it { expect(subject.author).to eq('Aesop') }
+    it { expect(subject.guid).to eq('f19f86d2658f39c64187492903c0100a846fa63a72131574f20f49257959c9da') }
+    it { expect(subject.duration).to eq(46.628375) }
+    it { expect(subject.length).to eq(373155) }
   end
 end

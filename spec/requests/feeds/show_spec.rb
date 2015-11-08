@@ -3,6 +3,9 @@ require 'rails_helper'
 describe '/feeds/show', :type => :request do
   subject { get request_url }
 
+  include_context :vcr_chain
+  let(:vcr_chain_cassettes) { :upload_url_mp3 }
+
   let(:user) { create(:user) }
 
   let(:upload) { create(:upload, user: user) }
@@ -31,11 +34,8 @@ describe '/feeds/show', :type => :request do
 
     it { expect(response.code.to_i).to eq(200) }
 
-    let(:enclosure_url) do
-      "#{Rails.root}/spec/fixtures/1984-01_64kb.mp3"
-    end
     let(:guid) do
-      '0b6b8524741a72d04861b022027834eec220086f336b86c2389c8946a03b6755'
+      'f19f86d2658f39c64187492903c0100a846fa63a72131574f20f49257959c9da'
     end
 
     it 'returns proper xml with feed' do
@@ -50,13 +50,13 @@ describe '/feeds/show', :type => :request do
     <itunes:author></itunes:author>
     <generator>Locucast</generator>
     <item>
-      <title>1984-01</title>
-      <itunes:author>George Orwell R-(Frank Muller)</itunes:author>
+      <title>The Fox and The Grapes</title>
+      <itunes:author>Aesop</itunes:author>
       <itunes:image href=\"\"/>
-      <enclosure url=\"#{enclosure_url}\" length=\"21147816\" type=\"audio/mpeg\"/>
+      <enclosure url=\"#{uploaded_file.url}\" length=\"373155\" type=\"audio/mpeg\"/>
       <guid isPermaLink=\"false\">#{guid}</guid>
       <pubDate>#{Date.today} 00:01:00 UTC</pubDate>
-      <itunes:duration>2643</itunes:duration>
+      <itunes:duration>46</itunes:duration>
     </item>
   </channel>
 </rss>\n"
