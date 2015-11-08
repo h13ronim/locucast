@@ -31,11 +31,11 @@ module UploadsHelper
     end
   end
 
-  def uploads_form_path(upload)
+  def uploads_form_params(upload)
     if params[:action] == 'edit'
-      audiobook_path(@upload)
+      { url: audiobook_path(@upload), method: :put }
     else
-      audiobooks_path
+      { url: audiobooks_path }
     end
   end
 end
