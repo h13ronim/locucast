@@ -18,8 +18,8 @@
             %th{ style: "width: 70%"} Name
             %th
           - @uploaded_files.each_with_index do |file, i|
-            %tr{ id: "uploaded_file_#{file.id}" }
-              %td= i + 1
+            %tr.uploaded_file{ id: "uploaded_file_#{file.id}" }
+              %td.uploaded_file_position= i + 1
               %td= file.name
               %td= link_to "Delete", file, method: "delete", class: "button alert tiny delete-uploaded-file-button"
 
@@ -44,6 +44,10 @@
 
   $('#uploaded_files').sortable
     appendTo: document.body
+    stop: (e, ui) -> updatePositionNumbers()
+
+  window.updatePositionNumbers = () ->
+    $.each $(".uploaded_file_position"), (i, el) -> $(el).text(i + 1)
 
   $(".edit_upload").submit ->
     prepareUploadedFilesOrderHiddenInputs()
