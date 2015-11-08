@@ -3,7 +3,9 @@ require 'rails_helper'
 describe '/feeds/show', :type => :request do
   subject { get request_url }
 
-  let(:upload) { create(:upload) }
+  let(:user) { create(:user) }
+
+  let(:upload) { create(:upload, user: user) }
   let!(:uploaded_file) { create(:uploaded_file, upload: upload) }
 
   let(:request_url) { "/feeds/#{upload.id}.xml" }
@@ -12,6 +14,12 @@ describe '/feeds/show', :type => :request do
     before { subject }
 
     it { expect(response.code.to_i).to eq(401) }
+
+    context 'when using token' do
+      subject { get "#{request_url}?token=#{upload.token}" }
+
+      it { expect(response.code.to_i).to eq(200) }
+    end
   end
 
   context 'when authenticated' do
@@ -20,8 +28,6 @@ describe '/feeds/show', :type => :request do
       uploaded_file.send(:postprocess)
       subject
     end
-
-    let(:user) { create(:user) }
 
     it { expect(response.code.to_i).to eq(200) }
 

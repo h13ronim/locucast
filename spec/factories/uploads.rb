@@ -7,5 +7,6 @@ FactoryGirl.define do
     sequence :description do |n|
       "Upload description #{n}"
     end
+    token 'diej1eb1zee7rae3chahzaiK7uecho6pe6tu6rohr5Faighiaro4megiphah7Eif'
   end
 end
