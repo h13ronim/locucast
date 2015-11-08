@@ -14,8 +14,8 @@
     = csrf_meta_tag
 
   %body
-    .contain-to-grid
-      %nav.top-bar{"data-topbar" => "", :role => "navigation"}
+    .contain-to-grid.sticky
+      %nav.top-bar{"data-topbar" => "", :role => "navigation", "data-options" => "sticky_on: large"}
         %ul.title-area
           %li.name
             %h1
