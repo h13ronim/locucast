@@ -6,6 +6,7 @@
     <description><%= @feed.description %></description>
     <itunes:summary><%= @feed.description %></itunes:summary>
     <itunes:author><%= @feed.author %></itunes:author>
+    <itunes:image href="<%= @feed.image %>" />
     <generator>Locucast</generator>
     <%- @feed.items.each_with_index do |item, position| %>
     <item>

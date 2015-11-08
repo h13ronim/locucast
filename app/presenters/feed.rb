@@ -1,7 +1,7 @@
 class Feed < ActiveType::Object
   attr_reader :upload
 
-  delegate :description, :author, to: :upload
+  delegate :description, :author, :picture_url, to: :upload
 
   def initialize(upload)
     @upload = upload
@@ -9,6 +9,10 @@ class Feed < ActiveType::Object
 
   def title
     upload.name
+  end
+
+  def image
+    upload.picture_url
   end
 
   def items
