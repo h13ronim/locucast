@@ -1,5 +1,5 @@
 = s3_uploader_form id: "s3-uploader", callback_url: uploaded_files_url do
-  = file_field_tag :file, multiple: true
+  = file_field_tag :file, multiple: true, accept: "audio/mp3"
 
 .js-progress-bars
 
