@@ -6,7 +6,7 @@ if Rails.env.production?
     config.access_token = ENV["ROLLBAR_ACCESS_TOKEN"]
 
     # Here we'll disable in 'test':
-    if Rails.env.test?
+    unless Rails.env.production?
       config.enabled = false
     end
 
