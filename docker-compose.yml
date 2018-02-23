@@ -1,0 +1,32 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  minio:
+    image: minio/minio
+    volumes:
+      - minio-data:/export
+    ports:
+      - "9000:9000"
+    environment:
+      - "MINIO_ACCESS_KEY=${AWS_ACCESS_KEY}"
+      - "MINIO_SECRET_KEY=${AWS_SECRET_KEY}"
+    command: server /export
+
+  app:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - minio
+
+volumes:
+  minio-data:
+  pgdata:
